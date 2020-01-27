@@ -1,4 +1,4 @@
-package br.com.ifba.scop.infrastructure.exception;
+package br.com.ifba.vp.infrastructure.exception;
 
 public class BusinessException extends RuntimeException {
 

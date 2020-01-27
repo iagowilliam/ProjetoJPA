@@ -5,7 +5,7 @@
  */
 package br.com.ifba.vp.produto.service;
 
-import br.com.ifba.scop.infrastructure.exception.BusinessException;
+import br.com.ifba.vp.infrastructure.exception.BusinessException;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import br.com.ifba.vp.produto.model.dao.IProdutoDAO;
 import br.com.ifba.vp.produto.model.dao.ProdutoDAO;
