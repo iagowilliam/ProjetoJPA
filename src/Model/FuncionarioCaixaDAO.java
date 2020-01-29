@@ -5,7 +5,7 @@
  */
 package Model;
 
-import Controller.FuncionarioCaixa;
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import Connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

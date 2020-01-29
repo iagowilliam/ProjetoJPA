@@ -3,39 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package br.com.ifba.vp.infrastructure.model;
 
 /**
  *
  * @author Icaro
  */
-public class FuncionarioCaixa extends Funcionario{
+abstract public class Pessoa {
     
-    private String especialização;
-
-    public String getEspecialização() {
-        return especialização;
-    }
-
-    public void setEspecialização(String especialização) {
-        this.especialização = especialização;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getSenha() {
-        return Senha;
-    }
-
-    public void setSenha(int Senha) {
-        this.Senha = Senha;
-    }
+    protected String Nome;
+    protected long Telefone;
+    protected int RG;
+    protected String Estado;
+    protected String Cidade;;
+    protected String Rua;
+    protected String Bairro;
+    protected int Numero;
+    protected String Sexo;
+    protected long CPF;
+    protected int CEP;
 
     public String getNome() {
         return Nome;
@@ -125,20 +111,6 @@ public class FuncionarioCaixa extends Funcionario{
         this.CEP = CEP;
     }
     
-    @Override
-    void CadastroCliente() {
-        
-    }
-
-    @Override
-    void CadastroProduto() {
-        
-    }
-
-    @Override
-    void ControleEstoque() {
-        
-    }
     
     
 }

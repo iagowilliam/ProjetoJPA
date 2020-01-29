@@ -5,7 +5,7 @@
  */
 package View;
 import Model.FuncionarioCaixaDAO;
-import Controller.FuncionarioCaixa;
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

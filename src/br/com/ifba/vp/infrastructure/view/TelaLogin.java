@@ -6,7 +6,7 @@
 package br.com.ifba.vp.infrastructure.view;
 
 import Model.FuncionarioCaixaDAO;
-import Controller.FuncionarioCaixa;
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import View.TelaFuncionario;
 import View.TelaGerente;
 import java.util.ArrayList;

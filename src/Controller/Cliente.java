@@ -5,13 +5,15 @@
  */
 package Controller;
 
+import br.com.ifba.vp.infrastructure.model.Pessoa;
+
 /**
  *
  * @author Icaro
  */
 public class Cliente extends Pessoa{
 
-    public String getNome() {
+    /*public String getNome() {
         return Nome;
     }
 
@@ -97,6 +99,6 @@ public class Cliente extends Pessoa{
 
     public void setCEP(int CEP) {
         this.CEP = CEP;
-    }
+    }*/
     
 }

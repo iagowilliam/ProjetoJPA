@@ -5,6 +5,7 @@
  */
 package br.com.ifba.vp.infrastructure.model;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -16,6 +17,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class AbstractEntity {
     @Id
+    @GeneratedValue
     private Long id;
 
     public Long getId() {

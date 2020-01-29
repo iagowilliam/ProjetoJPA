@@ -5,13 +5,15 @@
  */
 package Controller;
 
+import br.com.ifba.vp.infrastructure.model.Funcionario;
+
 /**
  *
  * @author Icaro
  */
 public class Gerente extends Funcionario{
     
-    void CadastroFornecedor(){
+    /*void CadastroFornecedor(){
         
     }
     
@@ -136,6 +138,6 @@ public class Gerente extends Funcionario{
     @Override
     void ControleEstoque() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
     
 }
