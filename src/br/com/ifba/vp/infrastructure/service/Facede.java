@@ -5,6 +5,9 @@
  */
 package br.com.ifba.vp.infrastructure.service;
 
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
+import br.com.ifba.vp.funcionariocaixa.service.IServiceFuncionarioCaixa;
+import br.com.ifba.vp.funcionariocaixa.service.ServiceFuncionarioCaixa;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import br.com.ifba.vp.produto.service.IServiceProduto;
 import br.com.ifba.vp.produto.service.ServiceProduto;
@@ -23,4 +26,12 @@ public class Facede implements IFacede {
     public Produto saveProduto(Produto produto){
         return this.serviceProduto.saveProduto(produto);
     }
+    
+    //------------FUNCIONARIO CAIXA-------------
+    
+    /*private final IServiceFuncionarioCaixa serviceFuncionarioCaixa = new ServiceFuncionarioCaixa();
+    
+    public FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa){
+        return this.serviceFuncionarioCaixa.saveFuncionario(funcionarioCaixa);
+    }*/
 }

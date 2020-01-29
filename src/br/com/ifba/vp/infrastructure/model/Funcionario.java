@@ -5,6 +5,8 @@
  */
 package br.com.ifba.vp.infrastructure.model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author Icaro

@@ -5,11 +5,14 @@
  */
 package br.com.ifba.vp.infrastructure.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author Icaro
  */
-abstract public class Pessoa {
+abstract public class Pessoa{
     
     protected String Nome;
     protected long Telefone;

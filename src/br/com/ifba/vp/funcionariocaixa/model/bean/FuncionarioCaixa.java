@@ -6,6 +6,7 @@
 package br.com.ifba.vp.funcionariocaixa.model.bean;
 
 import br.com.ifba.vp.infrastructure.model.Funcionario;
+import javax.persistence.Entity;
 
 
 

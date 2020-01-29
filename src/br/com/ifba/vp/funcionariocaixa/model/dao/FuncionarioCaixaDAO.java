@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package br.com.ifba.vp.funcionariocaixa.model.dao;
 
-import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import Connection.ConnectionFactory;
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
+import br.com.ifba.vp.infrastructure.dao.GenericDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,9 +21,9 @@ import java.util.logging.Logger;
  *
  * @author Icaro
  */
-public class FuncionarioCaixaDAO {
+public class FuncionarioCaixaDAO extends GenericDAO<FuncionarioCaixa> implements IFuncionarioCaixaDAO{
     
-    public void create(FuncionarioCaixa FC){
+    /*public void create(FuncionarioCaixa FC){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stm = null;
@@ -126,6 +127,6 @@ public class FuncionarioCaixaDAO {
         
         return funcionario;
         
-    }
+    }*/
           
 }

@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaCadastroProduto extends javax.swing.JFrame {
 
-    
+    //Produto produto;
     /**
      * Creates new form TelaCadastroProduto
      */

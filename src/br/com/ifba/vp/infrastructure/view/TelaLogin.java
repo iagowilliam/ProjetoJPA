@@ -5,7 +5,7 @@
  */
 package br.com.ifba.vp.infrastructure.view;
 
-import Model.FuncionarioCaixaDAO;
+import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import View.TelaFuncionario;
 import View.TelaGerente;
@@ -177,7 +177,7 @@ public class TelaLogin extends javax.swing.JFrame{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        FuncionarioCaixaDAO fdao = new FuncionarioCaixaDAO();
+        /*FuncionarioCaixaDAO fdao = new FuncionarioCaixaDAO();
         List <FuncionarioCaixa> FC = new ArrayList();
         
         long cpf = 0; //= Long.parseLong(jTextField1.getText());
@@ -221,7 +221,7 @@ public class TelaLogin extends javax.swing.JFrame{
         }
         if(i == 2){
             JOptionPane.showMessageDialog(null, "Usuario não cadastrado!");
-        }
+        }*/
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

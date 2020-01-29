@@ -5,6 +5,7 @@
  */
 package br.com.ifba.vp.infrastructure.service;
 
+import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.produto.model.bean.Produto;
 
 /**
@@ -16,4 +17,8 @@ public interface IFacede {
     //------------- Produto -------------
     public abstract Produto saveProduto(Produto protudo);
     
+    
+    //------------- FuncionarioCaixa -------------
+    //public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);
+
 }

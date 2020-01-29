@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package View;
-import Model.FuncionarioCaixaDAO;
+import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import java.util.ArrayList;
 import java.util.List;
@@ -203,7 +203,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();      
+        /*DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();      
         FuncionarioCaixaDAO fcao = new FuncionarioCaixaDAO();       
         FuncionarioCaixa c = new FuncionarioCaixa();
         
@@ -230,7 +230,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Digite apenas números inteiros!");
             
-        }     
+        }   */  
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
