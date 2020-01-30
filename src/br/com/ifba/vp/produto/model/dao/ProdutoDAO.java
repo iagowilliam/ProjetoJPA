@@ -56,7 +56,7 @@ public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO{
         return produto;
     }
     
-    public List<Produto> findAll(){
+   /* public List<Produto> findAll(){
         
         //EntityManager em = new ConnectionFactory().getConnection();
         
@@ -95,6 +95,6 @@ public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO{
         }
         
         return produto;
-    }
+    }*/
             
 }

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
-    FuncionarioCaixa funcionarioCaixa;
+    
     
     /**
      * Creates new form TelaCadastroFuncionario
@@ -432,11 +432,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
         
-        /*IFacede facede = new Facede();
+        FuncionarioCaixa funcionarioCaixa = new FuncionarioCaixa();
+        IFacede facede = new Facede();
         
         
         //Verifica de o funcion[ario [e válido
-        if(validaCampos() == true){
+        /*if(validaCampos() == true){
             
             funcionarioCaixa.setNome(this.txtNomeFuncionario.getText());
             funcionarioCaixa.setSenha(Integer.parseInt(this.txtSenhaFuncionario.getText()));

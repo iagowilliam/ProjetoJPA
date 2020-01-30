@@ -6,9 +6,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- Lista de entidades -->
     <class>br.com.ifba.vp.produto.model.bean.Produto</class>
-    <!--<class>br.com.ifba.vp.br.com.ifba.vp.infrastructure.model.Pessoa</class>
-    <class>br.com.ifba.vp.infrastructure.model.Funcionario</class>
-    <class>br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa</class> -->
+    <class>br.com.ifba.vp.fornecedor.model.bean.Fornecedor</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

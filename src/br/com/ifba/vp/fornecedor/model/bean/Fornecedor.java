@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package br.com.ifba.vp.fornecedor.model.bean;
+
+import br.com.ifba.vp.infrastructure.model.AbstractEntity;
+import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Icaro
  */
-public class Fornecedor {
+@Entity
+public class Fornecedor extends AbstractEntity implements Serializable{
     
     private String RazaoSocial;
     private int InscricaoEstadual;

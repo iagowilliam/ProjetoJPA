@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package br.com.ifba.vp.fornecedor.dao;
 import Connection.ConnectionFactory;
-import Controller.Fornecedor;
+import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
+import br.com.ifba.vp.infrastructure.dao.GenericDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,9 +16,9 @@ import java.util.logging.Logger;
  *
  * @author Icaro
  */
-public class FornecedorDAO {
+public class FornecedorDAO extends GenericDAO<Fornecedor> implements IFornecedorDAO{
     
-    public void create(Fornecedor F){
+    /*public void create(Fornecedor F){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stm = null;
@@ -47,6 +48,6 @@ public class FornecedorDAO {
             ConnectionFactory.fechaConexao(con, stm);
         }
         
-    }
+    }*/
     
 }

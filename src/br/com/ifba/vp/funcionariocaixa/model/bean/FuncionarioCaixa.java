@@ -6,6 +6,7 @@
 package br.com.ifba.vp.funcionariocaixa.model.bean;
 
 import br.com.ifba.vp.infrastructure.model.Funcionario;
+import java.io.Serializable;
 import javax.persistence.Entity;
 
 
@@ -15,7 +16,8 @@ import javax.persistence.Entity;
  *
  * @author Icaro
  */
-public class FuncionarioCaixa extends Funcionario{
+@Entity
+public class FuncionarioCaixa extends Funcionario implements Serializable{
     
     private String especialização;
 

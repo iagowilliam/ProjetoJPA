@@ -7,12 +7,17 @@ package br.com.ifba.vp.infrastructure.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  *
  * @author Icaro
  */
-abstract public class Pessoa{
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+abstract public class Pessoa extends AbstractEntity{
     
     protected String Nome;
     protected long Telefone;

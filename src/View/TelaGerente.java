@@ -5,6 +5,7 @@
  */
 package View;
 
+import br.com.ifba.vp.fornecedor.view.TelaCadastroFornecedor;
 import br.com.ifba.vp.funcionariocaixa.view.TelaCadastroFuncionario;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
 

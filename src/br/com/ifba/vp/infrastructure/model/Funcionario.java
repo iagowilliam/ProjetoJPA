@@ -6,11 +6,15 @@
 package br.com.ifba.vp.infrastructure.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  *
  * @author Icaro
  */
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 abstract public class Funcionario extends Pessoa{
     
     protected String email;
