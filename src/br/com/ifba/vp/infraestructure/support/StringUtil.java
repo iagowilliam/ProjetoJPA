@@ -1,4 +1,4 @@
-package br.com.ifba.scop.infraestructure.support;
+package br.com.ifba.vp.infraestructure.support;
 
 /**
  * StringUtil is an utility class witch implements string validations.

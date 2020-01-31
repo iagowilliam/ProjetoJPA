@@ -7,6 +7,7 @@ package br.com.ifba.vp.produto.view;
 import Controller.Caixa;
 import Controller.Produtos;
 import View.TelaFuncionario;
+import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
 import br.com.ifba.vp.produto.model.bean.Produto;
@@ -242,6 +243,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean validaCampos(){
+        StringUtil util = StringUtil.getInstance();
         
         //se todos os campos não estiverem preenchidos
         if(this.txtNomeProduto.getText().equals("") && this.txtLote.getText().equals("")){
@@ -249,47 +251,51 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 if(this.txtSecao.getText().equals("")){
                     if(this.txtDataDeValidade.getText().equals("  /  /    ") && this.txtCodigoDeBarras.getText().equals("")){
                             
-                        JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.");
                         return false;
                             
                     }
                 }               
             }
+        } 
+        
+        //checando cada campo invidivualmente
+        if(util.isNullOrEmpty(this.txtNomeProduto.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome de Produto.");
+            return false;
         }
         
-        return true;
-         
-        
-        //todos os campos que não estiverem preenchidos
-        /*if(this.txtNomeProduto.getText().equals("")){
+        if(util.isNullOrEmpty(this.txtLote.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Lote do Produto.");
             return false;
-        }else{
-            if(this.txtLote.getText().equals("")){
-                return false;
-            }else{
-                if(this.txtPrecoProduto.getText().equals("")){
-                    return false;
-                }else{
-                    if(this.txtGeneroProduto.getText().equals("")){
-                        return false;
-                    }else{
-                        if(this.txtSecao.getText().equals("")){
-                            return false;
-                        }else{
-                            if(this.txtDataDeValidade.getText().equals("")){
-                                return false;
-                            }else{
-                                if(this.txtCodigoDeBarras.getText().equals("")){
-                                    return false;
-                                }else{
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
+        }
+        
+        if(util.isNullOrEmpty(this.txtPrecoProduto.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Preço do Produto.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtGeneroProduto.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Genero do Produto.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtSecao.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Seção do Produto.");
+            return false;
+        }
+        
+        if(this.txtDataDeValidade.getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Data de Validade do Produto.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtCodigoDeBarras.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Código de Barras do Produto.");
+            return false;
+        }
+       
+        return true;
     }
     
     private void ButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSalvarActionPerformed
