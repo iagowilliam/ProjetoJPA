@@ -8,6 +8,7 @@ package br.com.ifba.vp.infrastructure.service;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.produto.model.bean.Produto;
+import java.util.List;
 
 /**
  *
@@ -18,6 +19,7 @@ public interface IFacede {
     //------------- Produto -------------
     public abstract Produto saveProduto(Produto protudo);
     
+    public abstract List <Produto> findByNomeProduto(Produto produto);
     
     //------------- FuncionarioCaixa -------------
     //public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);

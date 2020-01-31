@@ -6,7 +6,7 @@
 package br.com.ifba.vp.fornecedor.view;
 import br.com.ifba.vp.fornecedor.dao.FornecedorDAO;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
-import View.TelaGerente;
+import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
 import java.util.ArrayList;

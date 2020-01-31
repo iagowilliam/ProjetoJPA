@@ -5,6 +5,7 @@
  */
 package View;
 
+import br.com.ifba.vp.verificarestoque.view.TelaVerificarEstoque;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
 import br.com.ifba.vp.produto.view.TelaCadastroProduto;
 import Model.ProdutosDAO;

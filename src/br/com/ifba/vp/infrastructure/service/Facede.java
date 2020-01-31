@@ -14,6 +14,7 @@ import br.com.ifba.vp.funcionariocaixa.service.ServiceFuncionarioCaixa;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import br.com.ifba.vp.produto.service.IServiceProduto;
 import br.com.ifba.vp.produto.service.ServiceProduto;
+import java.util.List;
 
 /**
  *
@@ -28,6 +29,11 @@ public class Facede implements IFacede {
     @Override
     public Produto saveProduto(Produto produto){
         return this.serviceProduto.saveProduto(produto);
+    }
+    
+    @Override
+    public List <Produto> findByNomeProduto(Produto produto){
+        return this.serviceProduto.findByNomeProduto(produto);
     }
     
     //------------FUNCIONARIO CAIXA-------------

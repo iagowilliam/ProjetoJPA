@@ -7,6 +7,7 @@ package br.com.ifba.vp.produto.model.dao;
 
 import br.com.ifba.vp.infrastructure.dao.IGenericDAO;
 import br.com.ifba.vp.produto.model.bean.Produto;
+import java.util.List;
 
 /**
  *
@@ -14,6 +15,6 @@ import br.com.ifba.vp.produto.model.bean.Produto;
  */
 public interface IProdutoDAO extends IGenericDAO<Produto>{
     
-    
+    public abstract List <Produto> findByNomeProduto(Produto produto);
     
 }

@@ -5,7 +5,7 @@
  */
 package br.com.ifba.vp.funcionariocaixa.view;
 import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
-import View.TelaGerente;
+import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;

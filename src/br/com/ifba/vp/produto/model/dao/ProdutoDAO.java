@@ -10,6 +10,7 @@ import br.com.ifba.vp.infrastructure.dao.GenericDAO;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import javax.persistence.EntityManager;
 import java.util.List;
+import javax.persistence.Query;
 
 
 
@@ -54,6 +55,22 @@ public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO{
         }
         
         return produto;
+    }
+    
+    @Override
+    public List <Produto> findByNomeProduto(Produto produto){
+        
+        
+        //Query query = em.createQuery("select produto.nomeProduto, produto.preco, produto.secao, produto.dataValidade from Produto as produto where produto.nomeProduto=:nome");
+        Query query = em.createQuery("select p from Produto as p where p.nomeProduto=:nomeProduto");
+        query.setParameter("nomeProduto",produto.getNomeProduto());
+        return query.getResultList();
+        
+        //String query = "select * from Produto where nomeProduto = ?";
+        
+        
+        
+        //return GenericDAO.em.createQuery(query).getResultList();
     }
     
    /* public List<Produto> findAll(){

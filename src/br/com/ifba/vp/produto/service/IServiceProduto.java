@@ -6,6 +6,7 @@
 package br.com.ifba.vp.produto.service;
 
 import br.com.ifba.vp.produto.model.bean.Produto;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,7 @@ public interface IServiceProduto {
     
    //Método que salva o produto na base de dados
     public abstract Produto saveProduto(Produto produto);
+    
+    //Método que busca um produto da base de dados
+    public abstract List <Produto> findByNomeProduto(Produto produto); 
 }

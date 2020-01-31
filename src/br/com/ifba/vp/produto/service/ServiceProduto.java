@@ -9,6 +9,7 @@ import br.com.ifba.vp.infrastructure.exception.BusinessException;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import br.com.ifba.vp.produto.model.dao.IProdutoDAO;
 import br.com.ifba.vp.produto.model.dao.ProdutoDAO;
+import java.util.List;
 
 /**
  *
@@ -32,6 +33,12 @@ public class ServiceProduto implements IServiceProduto{
         }
         
         return this.produtoDAO.save(produto);
+    }
+    
+    @Override
+    public List <Produto> findByNomeProduto(Produto produto){
+        
+        return this.produtoDAO.findByNomeProduto(produto);
     }
     
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View;
+import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import java.util.ArrayList;
