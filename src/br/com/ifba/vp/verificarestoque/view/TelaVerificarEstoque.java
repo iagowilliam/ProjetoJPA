@@ -8,7 +8,7 @@ import br.com.ifba.vp.telagerente.view.TelaGerente;
 import Controller.Caixa;
 import Model.ProdutosDAO;
 import Controller.Produtos;
-import View.TelaFuncionario;
+import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
 import br.com.ifba.vp.produto.model.bean.Produto;

@@ -6,7 +6,7 @@
 package br.com.ifba.vp.produto.view;
 import Controller.Caixa;
 import Controller.Produtos;
-import View.TelaFuncionario;
+import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;

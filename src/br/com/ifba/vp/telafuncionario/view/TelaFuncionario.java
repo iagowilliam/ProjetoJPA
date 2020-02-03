@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package br.com.ifba.vp.telafuncionario.view;
 
 import br.com.ifba.vp.verificarestoque.view.TelaVerificarEstoque;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
 import br.com.ifba.vp.produto.view.TelaCadastroProduto;
 import Model.ProdutosDAO;
 import Controller.Produtos;
+import View.TelaCadastroCliente;
+import br.com.ifba.vp.infrastructure.service.Facede;
+import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.produto.model.bean.Produto;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -50,7 +55,7 @@ double precoTotal = 0;
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtVendaCodBarras = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -193,9 +198,9 @@ double precoTotal = 0;
         jLabel1.setForeground(new java.awt.Color(0, 102, 255));
         jLabel1.setText("Código de Barras");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtVendaCodBarras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtVendaCodBarrasActionPerformed(evt);
             }
         });
 
@@ -220,7 +225,7 @@ double precoTotal = 0;
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtVendaCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(192, 192, 192))))
@@ -232,7 +237,7 @@ double precoTotal = 0;
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVendaCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -366,7 +371,29 @@ double precoTotal = 0;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        ProdutosDAO pdao = new ProdutosDAO();
+        Produto produto = new Produto();
+        IFacede facede = new Facede();
+        
+        List <Produto> buscaCodigoBarras = facede.findByCodBarras(Integer.parseInt(this.txtVendaCodBarras.getText()));
+                
+        precoTotal = precoTotal + produto.getPreco();
+            
+            for(int i = 0; i  < buscaCodigoBarras.size() ; i++){
+                
+                modelo.addRow(new Object[]{
+                
+                    buscaCodigoBarras.get(i).getNomeProduto(),
+                    buscaCodigoBarras.get(i).getPreco(),
+                    buscaCodigoBarras.get(i).getLote(),
+                    buscaCodigoBarras.get(i).getDataValidade(),
+                });
+                
+            }
+            
+        
+        
+        jLabel3.setText(String.valueOf(precoTotal));
+        /*ProdutosDAO pdao = new ProdutosDAO();
         
         
         double precoUnitario;
@@ -402,7 +429,7 @@ double precoTotal = 0;
         }
         
 
-        jLabel3.setText(String.valueOf(precoTotal));
+        jLabel3.setText(String.valueOf(precoTotal));*/
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -412,15 +439,15 @@ double precoTotal = 0;
         this.dispose();
     }//GEN-LAST:event_sairTelaGerenteActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtVendaCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendaCodBarrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtVendaCodBarrasActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         
         JOptionPane.showMessageDialog(null, "Compra efetuada com sucesso!");
-        jTextField1.setText("");
+        txtVendaCodBarras.setText("");
         jLabel3.setText("");
         precoTotal = 0;
         
@@ -484,7 +511,7 @@ double precoTotal = 0;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton sairTelaGerente;
+    private javax.swing.JTextField txtVendaCodBarras;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View;
+import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import Model.ClienteDAO;
 import Controller.Cliente;
 import java.util.ArrayList;

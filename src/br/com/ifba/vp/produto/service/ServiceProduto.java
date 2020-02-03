@@ -41,4 +41,14 @@ public class ServiceProduto implements IServiceProduto{
         return this.produtoDAO.findByNomeProduto(nomeProduto);
     }
     
+    @Override
+    public List <Produto> findByCodBarras(Integer codigoBarras){
+        return this.produtoDAO.findByCodBarras(codigoBarras);
+    }
+    
+    /*@Override
+    public List <Produto> deleteProduto(Integer codigoBarras){
+        return this.produtoDAO.deleteProduto(codigoBarras);
+    }*/
+    
 }

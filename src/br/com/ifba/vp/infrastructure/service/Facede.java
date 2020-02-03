@@ -36,6 +36,16 @@ public class Facede implements IFacede {
         return this.serviceProduto.findByNomeProduto(nomeProduto);
     }
     
+    @Override
+    public List <Produto> findByCodBarras(Integer codigoBarras){
+        return this.serviceProduto.findByCodBarras(codigoBarras);
+    }
+    
+    /*@Override
+    public List <Produto> deleteProduto(Integer codigoBarras){
+        return this.serviceProduto.deleteProduto(codigoBarras);
+    }*/
+    
     //------------FUNCIONARIO CAIXA-------------
     
    /* private final IServiceFuncionarioCaixa serviceFuncionarioCaixa = new ServiceFuncionarioCaixa();

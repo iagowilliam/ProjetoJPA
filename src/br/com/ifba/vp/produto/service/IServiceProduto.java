@@ -20,4 +20,9 @@ public interface IServiceProduto {
     
     //Método que busca um produto da base de dados
     public abstract List <Produto> findByNomeProduto(String nomeProduto); 
+    
+    public abstract List <Produto> findByCodBarras(Integer codigoBarras);
+    
+    /*public abstract List <Produto> deleteProduto(Integer codigoBarras);*/
+    
 }
