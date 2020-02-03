@@ -201,8 +201,9 @@ int i;
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         Produto produto = new Produto();
         IFacede facede = new Facede();
+        int y = 0;
         
-        List <Produto> buscaNomeProduto = facede.findByNomeProduto(produto);
+        List <Produto> buscaNomeProduto = facede.findByNomeProduto(this.txtPesquisaNomeProduto.getText());
        
         
         //buscaNomeProduto = facede.findByNomeProduto(produto);
@@ -211,9 +212,11 @@ int i;
             
             //produto.setNomeProduto(this.txtPesquisaNomeProduto.getText());
             
-            if(buscaNomeProduto == produto){
+            
+           // if(buscaNomeProduto == produto.getNomeProduto()){  
                 
                 for(int i = 0; i < buscaNomeProduto.size(); i++){
+                    y++;
                     modelo.addRow(new Object[]{
                         
                         buscaNomeProduto.get(i).getNomeProduto(),
@@ -223,11 +226,11 @@ int i;
                     });
                 }
                 
-            }else{
+            if(y == 0){
                 JOptionPane.showMessageDialog(null, "Produto não cadastrado!");
             }
             
-                
+           // }     
             
         //}
         

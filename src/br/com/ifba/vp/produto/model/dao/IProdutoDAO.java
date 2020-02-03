@@ -15,6 +15,6 @@ import java.util.List;
  */
 public interface IProdutoDAO extends IGenericDAO<Produto>{
     
-    public abstract List <Produto> findByNomeProduto(Produto produto);
+    public abstract List <Produto> findByNomeProduto(String nomeProduto);
     
 }

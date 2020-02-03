@@ -58,19 +58,19 @@ public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO{
     }
     
     @Override
-    public List <Produto> findByNomeProduto(Produto produto){
+    public List <Produto> findByNomeProduto(String nomeProduto){
         
         
         //Query query = em.createQuery("select produto.nomeProduto, produto.preco, produto.secao, produto.dataValidade from Produto as produto where produto.nomeProduto=:nome");
-        Query query = em.createQuery("select p from Produto as p where p.nomeProduto=:nomeProduto");
-        query.setParameter("nomeProduto",produto.getNomeProduto());
-        return query.getResultList();
+        //Query query = em.createQuery("select p from Produto as p where p.nomeProduto=:nomeProduto");
+        //query.setParameter("nomeProduto",produto.getNomeProduto());
+        //return query.getResultList();
         
-        //String query = "select * from Produto where nomeProduto = ?";
+        String query = "select p from Produto p where upper(p.nomeProduto) like upper('" + nomeProduto +"%')";
         
         
         
-        //return GenericDAO.em.createQuery(query).getResultList();
+        return GenericDAO.em.createQuery(query).getResultList();
     }
     
    /* public List<Produto> findAll(){

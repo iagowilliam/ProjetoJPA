@@ -36,9 +36,9 @@ public class ServiceProduto implements IServiceProduto{
     }
     
     @Override
-    public List <Produto> findByNomeProduto(Produto produto){
+    public List <Produto> findByNomeProduto(String nomeProduto){
         
-        return this.produtoDAO.findByNomeProduto(produto);
+        return this.produtoDAO.findByNomeProduto(nomeProduto);
     }
     
 }

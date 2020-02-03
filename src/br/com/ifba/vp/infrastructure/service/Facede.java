@@ -32,8 +32,8 @@ public class Facede implements IFacede {
     }
     
     @Override
-    public List <Produto> findByNomeProduto(Produto produto){
-        return this.serviceProduto.findByNomeProduto(produto);
+    public List <Produto> findByNomeProduto(String nomeProduto){
+        return this.serviceProduto.findByNomeProduto(nomeProduto);
     }
     
     //------------FUNCIONARIO CAIXA-------------

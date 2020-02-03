@@ -19,7 +19,7 @@ public interface IFacede {
     //------------- Produto -------------
     public abstract Produto saveProduto(Produto protudo);
     
-    public abstract List <Produto> findByNomeProduto(Produto produto);
+    public abstract List <Produto> findByNomeProduto(String nomeProduto);
     
     //------------- FuncionarioCaixa -------------
     //public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);

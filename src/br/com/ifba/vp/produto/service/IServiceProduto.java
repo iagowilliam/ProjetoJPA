@@ -19,5 +19,5 @@ public interface IServiceProduto {
     public abstract Produto saveProduto(Produto produto);
     
     //Método que busca um produto da base de dados
-    public abstract List <Produto> findByNomeProduto(Produto produto); 
+    public abstract List <Produto> findByNomeProduto(String nomeProduto); 
 }
