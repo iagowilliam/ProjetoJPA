@@ -35,7 +35,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         if(this.txtNomeFuncionario.getText().equals("") && this.txtSenhaFuncionario.getText().equals("")){
             if(this.txtEmailFuncionario.getText().equals("") && this.jComboBoxSexoFuncionario.getSelectedItem().equals("(  )-     -    ")){
                 if(this.txtRGFuncionario.getText().equals("  .   .   -  ") && this.txtCPFFuncionario.getText().equals("   .   .   -  ")){
-                    if(this.txtEspecializacaoFuncionario.getText().equals("  /  /    ") && this.txtTelefoneFuncionario.getText().equals("(  )    .    ")){
+                    if(this.txtEspecializacaoFuncionario.getText().equals("") && this.txtTelefoneFuncionario.getText().equals("(  )    .    ")){
                         if(this.txtRuaFuncionario.getText().equals("") && this.txtNumeroCasaFuncionario.getText().equals("")){
                             if(this.txtCidadeFuncionario.getText().equals("") && this.txtBairroFuncionario.getText().equals("")){
                                 if(this.jComboBoxEstado.getSelectedItem().equals("") && this.txtCEPFuncionario.getText().equals("")){

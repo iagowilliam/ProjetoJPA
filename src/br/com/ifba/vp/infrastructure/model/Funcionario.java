@@ -5,6 +5,7 @@
  */
 package br.com.ifba.vp.infrastructure.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;

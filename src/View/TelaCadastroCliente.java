@@ -307,7 +307,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        List <Cliente> AC = new ArrayList();
+        /*List <Cliente> AC = new ArrayList();
         Cliente C = new Cliente();
         ClienteDAO dao = new ClienteDAO();
         int i = 0;
@@ -348,7 +348,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         
         if(i != 0){
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-        }
+        }*/
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

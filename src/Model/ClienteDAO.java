@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class ClienteDAO {
     
-    public void create(Cliente C){
+   /* public void create(Cliente C){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stm = null;
@@ -48,6 +48,6 @@ public class ClienteDAO {
             ConnectionFactory.fechaConexao(con, stm);
         }
         
-    }
+    }*/
     
 }
