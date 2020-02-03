@@ -40,7 +40,8 @@ public class ServiceProduto implements IServiceProduto{
         
         return this.produtoDAO.findByNomeProduto(nomeProduto);
     }
-    
+      
+    //Provavelmente esse método ficara no service de funcionário caixa
     @Override
     public List <Produto> findByCodBarras(Integer codigoBarras){
         return this.produtoDAO.findByCodBarras(codigoBarras);

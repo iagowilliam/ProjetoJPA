@@ -6,6 +6,7 @@
 package br.com.ifba.vp.fornecedor.view;
 import br.com.ifba.vp.fornecedor.dao.FornecedorDAO;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
+import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
@@ -40,15 +41,12 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtInscricaoEstadual = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtCNPJ = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtFax = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtCEP = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
@@ -64,6 +62,9 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jComboBoxEstado = new javax.swing.JComboBox<String>();
         jButtonCancelar = new javax.swing.JButton();
+        txtTelefoneFornecedor = new javax.swing.JFormattedTextField();
+        txtCNPJ = new javax.swing.JFormattedTextField();
+        txtCEP = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -82,12 +83,6 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jLabel2.setText("Inscrição Estadual");
 
         jLabel3.setText("Telefone");
-
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("CNPJ");
 
@@ -169,6 +164,24 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             }
         });
 
+        try {
+            txtTelefoneFornecedor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,8 +200,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                             .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTelefoneFornecedor)
+                                    .addGap(18, 18, 18)
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtFax, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -199,16 +212,20 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel9)
@@ -222,11 +239,12 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                    .addComponent(txtCEP))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel8))
+                                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonSalvar)
                                 .addGap(87, 87, 87)
@@ -250,10 +268,10 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                     .addComponent(txtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(txtFax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(txtTelefoneFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -280,8 +298,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                     .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
@@ -307,55 +325,88 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean validaCampos(){
-        if(this.txtRazaoSocial.getText().equals("")){
-            return false;
-        }else{
-            if(this.txtInscricaoEstadual.getText().equals("")){
-                return false;
-            }else{
-                if(this.txtTelefone.getText().equals("")){
-                    return false;
-                }else{
-                    if(this.txtFax.getText().equals("")){
-                        return false;
-                    }else{
-                        if(this.txtCNPJ.getText().equals("")){
-                            return false;
-                        }else{
-                            if(this.txtEmail.getText().equals("")){
+        
+        StringUtil util = StringUtil.getInstance();
+        
+        //se todos os campos tiverem preenchido
+        if(this.txtRazaoSocial.getText().equals("") && this.txtInscricaoEstadual.getText().equals("")){
+           if(this.txtTelefoneFornecedor.getText().equals("(  )    -    ") && this.txtFax.getText().equals("")){
+               if(this.txtCNPJ.getText().equals("  .   .   /    -  ") && this.txtEmail.getText().equals("")){
+                   if(this.txtRua.getText().equals("") && this.txtNumero.getText().equals("")){
+                       if(this.txtCidade.getText().equals("") && this.txtBairro.getText().equals("")){
+                           if(this.jComboBoxEstado.getSelectedItem().equals("") && this.txtCEP.getText().equals("     -   ")){
+                               
+                                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.");
                                 return false;
-                            }else{
-                                if(this.txtRua.getText().equals("")){
-                                    return false;
-                                }else{
-                                    if(this.txtNumero.getText().equals("")){
-                                        return false;
-                                    }else{
-                                        if(this.txtCidade.getText().equals("")){
-                                            return false;
-                                        }else{
-                                            if(this.txtBairro.getText().equals("")){
-                                                return false;
-                                            }else{
-                                                if(this.jComboBoxEstado.getSelectedItem().equals("")){
-                                                    return false;
-                                                }else{
-                                                    if(this.txtCEP.getText().equals("")){
-                                                        return false;
-                                                    }else{
-                                                        return true;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+                           }
+                       }
+                   }
+               }
+           } 
         }
+        
+        //checando cada campo individualmente
+        if(util.isNullOrEmpty(this.txtRazaoSocial.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Razão Social. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtInscricaoEstadual.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Inscrição Estadual. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(this.txtTelefoneFornecedor.getText().equals("(  )    -    ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Telefone. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtFax.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo FAX. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(this.txtCNPJ.getText().equals("  .   .   /    -  ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CNPJ. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtEmail.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Email. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtRua.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Rua. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtNumero.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Número. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtCidade.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Cidade. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtBairro.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Bairro. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty((String) this.jComboBoxEstado.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Estado. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        if(this.txtCEP.getText().equals("     -   ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CEP. CAMPO OBRIGATÓRIO");
+            return false;
+        }
+        
+        return true;
     }
     
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
@@ -365,10 +416,6 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     private void txtRazaoSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazaoSocialActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRazaoSocialActionPerformed
-
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
@@ -392,7 +439,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             //Inserindo os dados aos atriubtos do objeto
             fornecedor.setRazaoSocial(this.txtRazaoSocial.getText());
             fornecedor.setInscricaoEstadual(Integer.parseInt(this.txtInscricaoEstadual.getText()));
-            fornecedor.setTelefone(Long.parseLong(this.txtTelefone.getText()));
+            fornecedor.setTelefone(Long.parseLong(this.txtTelefoneFornecedor.getText()));
             fornecedor.setFax(Long.parseLong(this.txtFax.getText()));
             fornecedor.setCNPJ(Long.parseLong(this.txtCNPJ.getText()));
             fornecedor.setEmail(this.txtEmail.getText());
@@ -518,8 +565,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtBairro;
-    private javax.swing.JTextField txtCEP;
-    private javax.swing.JTextField txtCNPJ;
+    private javax.swing.JFormattedTextField txtCEP;
+    private javax.swing.JFormattedTextField txtCNPJ;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFax;
@@ -527,6 +574,6 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtRazaoSocial;
     private javax.swing.JTextField txtRua;
-    private javax.swing.JTextField txtTelefone;
+    private javax.swing.JFormattedTextField txtTelefoneFornecedor;
     // End of variables declaration//GEN-END:variables
 }
