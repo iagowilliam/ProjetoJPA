@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-abstract public class Pessoa extends AbstractEntity{
+abstract public class Pessoa extends AbstractEntity implements Serializable{
     
     protected String Nome;
     protected long Telefone;

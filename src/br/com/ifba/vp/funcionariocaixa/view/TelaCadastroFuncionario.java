@@ -34,11 +34,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         //se todos os campos não estiverem preenchidos
         if(this.txtNomeFuncionario.getText().equals("") && this.txtSenhaFuncionario.getText().equals("")){
             if(this.txtEmailFuncionario.getText().equals("") && this.jComboBoxSexoFuncionario.getSelectedItem().equals("(  )-     -    ")){
-                if(this.txtRGFuncionario.getText().equals("  .   .   -  ") && this.txtCPFFuncionario.getText().equals("   .   .   -  ")){
-                    if(this.txtEspecializacaoFuncionario.getText().equals("") && this.txtTelefoneFuncionario.getText().equals("(  )    .    ")){
+                if(this.txtRG.getText().equals("  .   .   -  ") && this.txtCPF.getText().equals("   .   .   -  ")){
+                    if(this.txtEspecializacaoFuncionario.getText().equals("") && this.txtTelefone.getText().equals("(  )    .    ")){
                         if(this.txtRuaFuncionario.getText().equals("") && this.txtNumeroCasaFuncionario.getText().equals("")){
                             if(this.txtCidadeFuncionario.getText().equals("") && this.txtBairroFuncionario.getText().equals("")){
-                                if(this.jComboBoxEstado.getSelectedItem().equals("") && this.txtCEPFuncionario.getText().equals("")){
+                                if(this.jComboBoxEstado.getSelectedItem().equals("") && this.txtCEP.getText().equals("")){
                                     
                                     JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.");
                                     return false;
@@ -51,7 +51,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         }
         
         //checando cada campo invidivualmente
-        if(util.isNullOrEmpty(this.txtNomeFuncionario.getText())){
+       /* if(util.isNullOrEmpty(this.txtNomeFuncionario.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo Nome de Funcionário.");
             return false;
         }
@@ -120,7 +120,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         if(util.isNullOrEmpty(this.txtCEPFuncionario.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo CEP.");
             return false;
-        }
+        }*/
         
         return true;
     }
@@ -161,14 +161,14 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jComboBoxEstado = new javax.swing.JComboBox<String>();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         txtSenhaFuncionario = new javax.swing.JPasswordField();
-        jComboBoxSexoFuncionario = new javax.swing.JComboBox<String>();
-        txtRGFuncionario = new javax.swing.JFormattedTextField();
-        txtCPFFuncionario = new javax.swing.JFormattedTextField();
-        txtTelefoneFuncionario = new javax.swing.JFormattedTextField();
-        txtCEPFuncionario = new javax.swing.JFormattedTextField();
+        jComboBoxSexoFuncionario = new javax.swing.JComboBox<>();
+        txtRG = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
+        txtCEP = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -278,41 +278,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         jLabel14.setText("Estado");
 
-        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
         jComboBoxEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel15.setText("CEP");
 
-        jComboBoxSexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
-
-        try {
-            txtRGFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtCPFFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCPFFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPFFuncionarioActionPerformed(evt);
-            }
-        });
-
-        try {
-            txtTelefoneFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtCEPFuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jComboBoxSexoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -341,12 +312,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtRGFuncionario)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))
+                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,17 +325,10 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                             .addComponent(txtSenhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtBairroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButtonSalvar)
                                 .addGap(83, 83, 83)
                                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtEspecializacaoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtCidadeFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
@@ -373,8 +337,16 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNumeroCasaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtCEPFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(7, Short.MAX_VALUE))))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtCEP, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtBairroFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -402,8 +374,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
-                    .addComponent(txtRGFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCPFFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEspecializacaoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,7 +383,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -431,7 +403,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtCEPFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
@@ -484,22 +456,22 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         
         
         //Verifica de o funcion[ario [e válido
-        /*if(validaCampos() == true){
+        if(validaCampos() == true){
             
             funcionarioCaixa.setNome(this.txtNomeFuncionario.getText());
             funcionarioCaixa.setSenha(Integer.parseInt(this.txtSenhaFuncionario.getText()));
             funcionarioCaixa.setEmail(this.txtEmailFuncionario.getText());
             funcionarioCaixa.setSexo((String) this.jComboBoxSexoFuncionario.getSelectedItem());
-            funcionarioCaixa.setRG(Integer.parseInt(this.txtRGFuncionario.getText()));
-            funcionarioCaixa.setCPF(Long.parseLong(this.txtCPFFuncionario.getText()));
+            funcionarioCaixa.setRG(Integer.parseInt(this.txtRG.getText()));
+            funcionarioCaixa.setCPF(Long.parseLong(this.txtCPF.getText()));
             funcionarioCaixa.setEspecialização(this.txtEspecializacaoFuncionario.getText());
-            funcionarioCaixa.setTelefone(Long.parseLong(this.txtTelefoneFuncionario.getText()));
+            funcionarioCaixa.setTelefone(Long.parseLong(this.txtTelefone.getText()));
             funcionarioCaixa.setRua(this.txtRuaFuncionario.getText());
             funcionarioCaixa.setNumero(Integer.parseInt(this.txtNumeroCasaFuncionario.getText()));
             funcionarioCaixa.setCidade(this.txtCidadeFuncionario.getText());
             funcionarioCaixa.setBairro(this.txtBairroFuncionario.getText());
             funcionarioCaixa.setEstado((String) this.jComboBoxEstado.getSelectedItem());
-            funcionarioCaixa.setCEP(Integer.parseInt(this.txtCEPFuncionario.getText()));
+            funcionarioCaixa.setCEP(Integer.parseInt(this.txtCEP.getText()));
             
             //salvando funcioniario na base de dados
             if(facede.saveFuncionario(funcionarioCaixa) == funcionarioCaixa){
@@ -513,7 +485,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar");
             }
             
-        }*/
+        }
         
         /*List <FuncionarioCaixa> FC = new ArrayList();
         FuncionarioCaixa F = new FuncionarioCaixa();
@@ -563,10 +535,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         }*/
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
-
-    private void txtCPFFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPFFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -627,16 +595,16 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtBairroFuncionario;
-    private javax.swing.JFormattedTextField txtCEPFuncionario;
-    private javax.swing.JFormattedTextField txtCPFFuncionario;
+    private javax.swing.JTextField txtCEP;
+    private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtCidadeFuncionario;
     private javax.swing.JTextField txtEmailFuncionario;
     private javax.swing.JTextField txtEspecializacaoFuncionario;
     private javax.swing.JTextField txtNomeFuncionario;
     private javax.swing.JTextField txtNumeroCasaFuncionario;
-    private javax.swing.JFormattedTextField txtRGFuncionario;
+    private javax.swing.JTextField txtRG;
     private javax.swing.JTextField txtRuaFuncionario;
     private javax.swing.JPasswordField txtSenhaFuncionario;
-    private javax.swing.JFormattedTextField txtTelefoneFuncionario;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

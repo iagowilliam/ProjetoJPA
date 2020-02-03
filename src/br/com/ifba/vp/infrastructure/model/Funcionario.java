@@ -16,7 +16,7 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-abstract public class Funcionario extends Pessoa{
+abstract public class Funcionario extends Pessoa implements Serializable{
     
     protected String email;
     protected int Senha;

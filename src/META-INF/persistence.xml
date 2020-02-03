@@ -7,12 +7,15 @@
     <!-- Lista de entidades -->
     <class>br.com.ifba.vp.produto.model.bean.Produto</class>
     <class>br.com.ifba.vp.fornecedor.model.bean.Fornecedor</class>
+    <class>br.com.ifba.vp.infrastructure.model.Pessoa</class>
+    <class>br.com.ifba.vp.infrastructure.model.Funcionario</class>
+    <class>br.com.ifba.vp.infrastructure.model.FuncionarioCaixa</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/projetovp"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.password" value="Zeus515805"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
       <!-- Configurações específicas do Hibernate -->
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
       <property name="hibernate.hbm2ddl.auto" value="update"/>

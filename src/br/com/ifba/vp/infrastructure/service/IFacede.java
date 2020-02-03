@@ -26,7 +26,7 @@ public interface IFacede {
     /*public abstract List <Produto> deleteProduto(Integer codigoBarras);*/
     
     //------------- FuncionarioCaixa -------------
-    //public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);
+    public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);
 
     
     //------------- Fornecedor -------------

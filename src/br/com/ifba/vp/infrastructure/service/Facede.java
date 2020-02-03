@@ -48,12 +48,12 @@ public class Facede implements IFacede {
     
     //------------FUNCIONARIO CAIXA-------------
     
-   /* private final IServiceFuncionarioCaixa serviceFuncionarioCaixa = new ServiceFuncionarioCaixa();
+    private final IServiceFuncionarioCaixa serviceFuncionarioCaixa = new ServiceFuncionarioCaixa();
     
     @Override
     public FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa){
         return this.serviceFuncionarioCaixa.saveFuncionario(funcionarioCaixa);
-    }*/
+    }
     
     //------------FORNECEDOR-------------
     private final IServiceFornecedor serviceFornecedor = new ServiceFornecedor();
