@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package br.com.ifba.vp.funcionariocaixa.view;
-import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
+
 import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
-import java.util.ArrayList;
-import java.util.List;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import javax.swing.JOptionPane;
 /**
  *
@@ -474,7 +473,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             funcionarioCaixa.setCEP(Integer.parseInt(this.txtCEP.getText()));
             
             //salvando funcioniario na base de dados
-            if(facede.saveFuncionario(funcionarioCaixa) == funcionarioCaixa){
+            if(Singleton.getInstance().saveFuncionario(funcionarioCaixa) == funcionarioCaixa){
                 
                 JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso!");
                 

@@ -9,6 +9,7 @@ import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.dao.IFuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.infrastructure.exception.BusinessException;
+import java.util.List;
 
 /**
  *
@@ -32,6 +33,15 @@ public class ServiceFuncionarioCaixa implements IServiceFuncionarioCaixa{
         }
         
         return this.funcionarioCaixaDAO.save(funcionarioCaixa);
+    }
+    
+    @Override
+    public List <FuncionarioCaixa> findByCpfFuncionario(Long CPF){
+        return this.funcionarioCaixaDAO.findByCpfFuncionario(CPF);
+    }
+    
+    public List <FuncionarioCaixa> login(){
+        return this.funcionarioCaixaDAO.login();
     }
     
 }

@@ -5,11 +5,11 @@
  */
 package br.com.ifba.vp.telagerente.view;
 
-import View.PesquisarFuncionario;
 import br.com.ifba.vp.verificarestoque.view.TelaVerificarEstoque;
 import br.com.ifba.vp.fornecedor.view.TelaCadastroFornecedor;
 import br.com.ifba.vp.funcionariocaixa.view.TelaCadastroFuncionario;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
+import br.com.ifba.vp.pesquisarfuncionario.view.PesquisarFuncionario;
 
 /**
  *

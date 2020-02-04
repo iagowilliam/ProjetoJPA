@@ -10,6 +10,7 @@ import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -483,7 +484,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             fornecedor.setCEP(Integer.parseInt(this.txtCEP.getText()));
             
             //salvando na base de dados
-            if(facede.saveFornecedor(fornecedor) == fornecedor){
+            if(Singleton.getInstance().saveFornecedor(fornecedor) == fornecedor){
                 
                 JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
                 

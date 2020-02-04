@@ -8,11 +8,10 @@ package br.com.ifba.vp.telafuncionario.view;
 import br.com.ifba.vp.verificarestoque.view.TelaVerificarEstoque;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
 import br.com.ifba.vp.produto.view.TelaCadastroProduto;
-import Model.ProdutosDAO;
-import Controller.Produtos;
-import View.TelaCadastroCliente;
+import br.com.ifba.vp.cliente.view.TelaCadastroCliente;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import br.com.ifba.vp.produto.model.bean.Produto;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -374,7 +373,7 @@ double precoTotal = 0;
         Produto produto = new Produto();
         IFacede facede = new Facede();
         
-        List <Produto> buscaCodigoBarras = facede.findByCodBarras(Integer.parseInt(this.txtVendaCodBarras.getText()));
+        List <Produto> buscaCodigoBarras = Singleton.getInstance().findByCodBarras(Integer.parseInt(this.txtVendaCodBarras.getText()));
                 
         precoTotal = precoTotal + produto.getPreco();
             

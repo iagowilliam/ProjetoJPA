@@ -5,14 +5,11 @@
  */
 package br.com.ifba.vp.verificarestoque.view;
 import br.com.ifba.vp.telagerente.view.TelaGerente;
-import Controller.Caixa;
-import Model.ProdutosDAO;
-import Controller.Produtos;
 import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import br.com.ifba.vp.produto.model.bean.Produto;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -203,7 +200,7 @@ int i;
         IFacede facede = new Facede();
         int y = 0;
         
-        List <Produto> buscaNomeProduto = facede.findByNomeProduto(this.txtPesquisaNomeProduto.getText());
+        List <Produto> buscaNomeProduto = Singleton.getInstance().findByNomeProduto(this.txtPesquisaNomeProduto.getText());
        
         
         //buscaNomeProduto = facede.findByNomeProduto(produto);

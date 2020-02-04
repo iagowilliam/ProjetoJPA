@@ -5,16 +5,6 @@
  */
 package Model;
 
-import Connection.ConnectionFactory;
-import Controller.Produtos;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class ProdutosDAO {
     
-    public void create(Produtos P){
+    /*public void create(Produtos P){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stm = null;
@@ -172,6 +162,6 @@ public class ProdutosDAO {
         
         return produto;
         
-    }
+    }*/
     
 }

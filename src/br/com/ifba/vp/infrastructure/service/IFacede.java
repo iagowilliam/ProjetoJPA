@@ -5,6 +5,7 @@
  */
 package br.com.ifba.vp.infrastructure.service;
 
+import br.com.ifba.vp.cliente.model.bean.Cliente;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.produto.model.bean.Produto;
@@ -28,7 +29,12 @@ public interface IFacede {
     //------------- FuncionarioCaixa -------------
     public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);
 
+    public abstract List <FuncionarioCaixa> findByCpfFuncionario(Long CPF);
     
+    public abstract List <FuncionarioCaixa> login();
     //------------- Fornecedor -------------
     public abstract Fornecedor saveFornecedor(Fornecedor fornecedor);
+    
+    //------------- Cliente -------------
+    public abstract Cliente saveCliente(Cliente cliente);
 }

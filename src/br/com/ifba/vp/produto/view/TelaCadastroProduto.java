@@ -4,18 +4,13 @@
  * and open the template in the editor.
  */
 package br.com.ifba.vp.produto.view;
-import Controller.Caixa;
-import Controller.Produtos;
+
 import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import br.com.ifba.vp.produto.model.bean.Produto;
-import java.awt.Color;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 /**
  *
@@ -319,7 +314,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             //facede.saveProduto(produto);
             
             //salvando na base de dados
-            if(facede.saveProduto(produto) == produto){
+            if(Singleton.getInstance().saveProduto(produto) == produto){
                 
                 JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
                

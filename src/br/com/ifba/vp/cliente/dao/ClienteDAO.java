@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package br.com.ifba.vp.cliente.dao;
 
-import Controller.Cliente;
-import Connection.ConnectionFactory;
+import br.com.ifba.vp.cliente.model.bean.Cliente;
+import br.com.ifba.vp.infrastructure.dao.GenericDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Icaro
  */
-public class ClienteDAO {
+public class ClienteDAO extends GenericDAO<Cliente> implements IClienteDAO {
     
    /* public void create(Cliente C){
         

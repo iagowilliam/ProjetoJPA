@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package br.com.ifba.vp.pesquisafuncionario.view;
 import br.com.ifba.vp.telagerente.view.TelaGerente;
 import br.com.ifba.vp.funcionariocaixa.model.dao.FuncionarioCaixaDAO;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
+import br.com.ifba.vp.infrastructure.service.Facede;
+import br.com.ifba.vp.infrastructure.service.IFacede;
+import br.com.ifba.vp.infrastructure.service.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -44,7 +47,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscaCpf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -119,9 +122,9 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscaCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuscaCpfActionPerformed(evt);
             }
         });
 
@@ -129,7 +132,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +152,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
                                 .addContainerGap())
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -168,7 +171,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtBuscaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addComponent(jLabel3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -204,8 +207,28 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        /*DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();      
-        FuncionarioCaixaDAO fcao = new FuncionarioCaixaDAO();       
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();      
+        FuncionarioCaixa funcionarioCaixa = new FuncionarioCaixa();
+        IFacede facede = new Facede();
+        int y = 0;
+        
+        List <FuncionarioCaixa> buscaCPF = Singleton.getInstance().findByCpfFuncionario(Long.parseLong(this.txtBuscaCpf.getText()));
+        
+        for(int i = 0 ; i < buscaCPF.size(); i++){
+            y++;
+            modelo.addRow(new Object[]{
+                        
+                buscaCPF.get(i).getNome(),
+                buscaCPF.get(i).getRG(),
+            });
+        }
+        
+        if(y == 0){
+                JOptionPane.showMessageDialog(null, "Funcionário não cadastrado!");
+            }
+        
+        
+        /*FuncionarioCaixaDAO fcao = new FuncionarioCaixaDAO();       
         FuncionarioCaixa c = new FuncionarioCaixa();
         
         try{
@@ -235,9 +258,9 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuscaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuscaCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +288,7 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PesquisarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -286,6 +310,6 @@ public class PesquisarFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtBuscaCpf;
     // End of variables declaration//GEN-END:variables
 }

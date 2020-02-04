@@ -4,14 +4,8 @@
  * and open the template in the editor.
  */
 package br.com.ifba.vp.fornecedor.dao;
-import Connection.ConnectionFactory;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
 import br.com.ifba.vp.infrastructure.dao.GenericDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Icaro

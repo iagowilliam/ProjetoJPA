@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package br.com.ifba.vp.cliente.model.bean;
 
 import br.com.ifba.vp.infrastructure.model.Pessoa;
+import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Icaro
  */
-public class Cliente extends Pessoa{
+@Entity
+public class Cliente extends Pessoa implements Serializable{
 
     /*public String getNome() {
         return Nome;

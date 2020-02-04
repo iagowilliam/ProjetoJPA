@@ -5,23 +5,40 @@
  */
 package br.com.ifba.vp.funcionariocaixa.model.dao;
 
-import Connection.ConnectionFactory;
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.infrastructure.dao.GenericDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Icaro
  */
 public class FuncionarioCaixaDAO extends GenericDAO<FuncionarioCaixa> implements IFuncionarioCaixaDAO{
+    
+    @Override
+    public List <FuncionarioCaixa> findByCpfFuncionario(Long CPF){
+        
+        
+        
+        String query = "select f from Pessoa f where upper(f.CPF) like upper('" + CPF +"%')";
+        
+        
+        
+        return GenericDAO.em.createQuery(query).getResultList();
+    }
+    
+    @Override
+    public List <FuncionarioCaixa> login(){
+        
+        String query = "select f from Funcionario f";
+        
+        /*String query  = "select f from FuncionarioCaixa f WHERE f.CPF like'"+
+            funcionarioCaixa.getCPF()+"%' and f.senha like '"+funcionarioCaixa.getSenha()+"'";*/
+        
+        return GenericDAO.em.createQuery(query).getResultList();
+        
+        //return GenericDAO.em.createQuery(query).getResultList();
+    }
     
     /*public void create(FuncionarioCaixa FC){
         

@@ -5,6 +5,9 @@
  */
 package br.com.ifba.vp.infrastructure.service;
 
+import br.com.ifba.vp.cliente.model.bean.Cliente;
+import br.com.ifba.vp.cliente.service.IServiceCliente;
+import br.com.ifba.vp.cliente.service.ServiceCliente;
 import br.com.ifba.vp.fornecedor.model.bean.Fornecedor;
 import br.com.ifba.vp.fornecedor.service.IServiceFornecedor;
 import br.com.ifba.vp.fornecedor.service.ServiceFornecedor;
@@ -55,11 +58,28 @@ public class Facede implements IFacede {
         return this.serviceFuncionarioCaixa.saveFuncionario(funcionarioCaixa);
     }
     
+    public List <FuncionarioCaixa> findByCpfFuncionario(Long CPF){
+        return this.serviceFuncionarioCaixa.findByCpfFuncionario(CPF);
+    }
+    
+    public List <FuncionarioCaixa> login(){
+        return this.serviceFuncionarioCaixa.login();
+    }
+    
     //------------FORNECEDOR-------------
     private final IServiceFornecedor serviceFornecedor = new ServiceFornecedor();
     
     @Override
     public Fornecedor saveFornecedor(Fornecedor fornecedor){
         return this.serviceFornecedor.saveFornecedor(fornecedor);
+    }
+    
+    //------------CLIENTE-------------
+    
+    private final IServiceCliente serviceCliente = new ServiceCliente();
+    
+    @Override
+    public Cliente saveCliente(Cliente cliente){
+        return this.serviceCliente.saveCliente(cliente);
     }
 }

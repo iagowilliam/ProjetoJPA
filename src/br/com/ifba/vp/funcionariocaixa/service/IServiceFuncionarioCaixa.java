@@ -6,6 +6,7 @@
 package br.com.ifba.vp.funcionariocaixa.service;
 
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,7 @@ public interface IServiceFuncionarioCaixa {
     //Metodo que salva o funcionario na base de dados
     public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);
     
+    public abstract List <FuncionarioCaixa> findByCpfFuncionario(Long CPF);
+ 
+    public abstract List <FuncionarioCaixa> login();
 }

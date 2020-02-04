@@ -16,7 +16,7 @@ import br.com.ifba.vp.infrastructure.exception.BusinessException;
  */
 public class ServiceFornecedor implements IServiceFornecedor{
     
-    //Representa mensagem de erro de o produto for null
+    //Representa mensagem de erro de o fornecedor for null
     public final static String FORNECEDOR_NULL = "Fornecedor null";
     
     //Objeto que faz a comunicação com a camada dao

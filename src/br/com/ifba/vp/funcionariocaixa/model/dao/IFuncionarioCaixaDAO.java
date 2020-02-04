@@ -7,6 +7,7 @@ package br.com.ifba.vp.funcionariocaixa.model.dao;
 
 import br.com.ifba.vp.funcionariocaixa.model.bean.FuncionarioCaixa;
 import br.com.ifba.vp.infrastructure.dao.IGenericDAO;
+import java.util.List;
 
 /**
  *
@@ -14,6 +15,8 @@ import br.com.ifba.vp.infrastructure.dao.IGenericDAO;
  */
 public interface IFuncionarioCaixaDAO extends IGenericDAO<FuncionarioCaixa>{
     
+    public abstract List <FuncionarioCaixa> findByCpfFuncionario(Long CPF);
     
+    public abstract List <FuncionarioCaixa> login();
     
 }
