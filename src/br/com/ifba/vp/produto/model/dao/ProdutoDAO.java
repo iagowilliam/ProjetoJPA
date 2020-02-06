@@ -51,9 +51,20 @@ public class ProdutoDAO extends GenericDAO<Produto> implements IProdutoDAO{
     /*@Override
     public List <Produto> deleteProduto(Integer codigoBarras){
         
-        String query = "delete p from Produto p where upper(p.codigoBarras) like upper('" + codigoBarras +"%')";
-        
+        //String query = "delete p from Produto p where upper(p.codigoBarras) like upper('" + codigoBarras +"%')";
+        String query = "delete * from Produto where upper(codigoBarras) like upper('" + codigoBarras +"%')";
         return GenericDAO.em.createQuery(query).getResultList();
+    }*/
+    
+    /*@Override
+    public Produto deleteProduto(Integer codigoBarras){
+        
+        String query = "delete p from Produto p where like upper('" + codigoBarras +"%')";
+        //String query = "delete p from Produto p where p.codigoBarras=:codigoBarras";
+        //Query query = em.createQuery("delete p from Produto p where p.codigoBarras=:codigoBarras");
+        //query.setParameter("codigoBarras", codigoBarras);
+        //return (Produto) query.getSingleResult();
+        return (Produto) GenericDAO.em.createQuery(query).getSingleResult();
     }*/
     
     @Override

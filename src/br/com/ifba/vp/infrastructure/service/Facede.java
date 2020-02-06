@@ -49,6 +49,11 @@ public class Facede implements IFacede {
         return this.serviceProduto.deleteProduto(codigoBarras);
     }*/
     
+    /*@Override
+    public Produto deleteProduto(Integer codigoBarras){
+        return this.serviceProduto.deleteProduto(codigoBarras);
+    }*/
+    
     //------------FUNCIONARIO CAIXA-------------
     
     private final IServiceFuncionarioCaixa serviceFuncionarioCaixa = new ServiceFuncionarioCaixa();

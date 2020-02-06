@@ -376,7 +376,7 @@ double precoTotal = 0;
         List <Produto> buscaCodigoBarras = Singleton.getInstance().findByCodBarras(Integer.parseInt(this.txtVendaCodBarras.getText()));
                 
         precoTotal = precoTotal + produto.getPreco();
-            
+               
             for(int i = 0; i  < buscaCodigoBarras.size() ; i++){
                 
                 modelo.addRow(new Object[]{
@@ -386,9 +386,11 @@ double precoTotal = 0;
                     buscaCodigoBarras.get(i).getLote(),
                     buscaCodigoBarras.get(i).getDataValidade(),
                 });
-                
-            }
+                    
+            //facede.deleteProduto(Integer.parseInt(this.txtVendaCodBarras.getText()));
             
+                
+            }  
         
         
         jLabel3.setText(String.valueOf(precoTotal));
@@ -444,7 +446,7 @@ double precoTotal = 0;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
+           
         JOptionPane.showMessageDialog(null, "Compra efetuada com sucesso!");
         txtVendaCodBarras.setText("");
         jLabel3.setText("");

@@ -24,7 +24,9 @@ public interface IFacede {
     
     public abstract List <Produto> findByCodBarras (Integer codigoBarras);
     
-    /*public abstract List <Produto> deleteProduto(Integer codigoBarras);*/
+    //public abstract List <Produto> deleteProduto(Integer codigoBarras);
+    
+    //public abstract Produto deleteProduto(Integer codigoBarras);
     
     //------------- FuncionarioCaixa -------------
     public abstract FuncionarioCaixa saveFuncionario(FuncionarioCaixa funcionarioCaixa);

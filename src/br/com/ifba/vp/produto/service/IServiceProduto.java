@@ -23,6 +23,7 @@ public interface IServiceProduto {
     
     public abstract List <Produto> findByCodBarras(Integer codigoBarras);
     
-    /*public abstract List <Produto> deleteProduto(Integer codigoBarras);*/
+    //public abstract List <Produto> deleteProduto(Integer codigoBarras);
     
+    //public Produto deleteProduto(Integer codigoBarras);
 }

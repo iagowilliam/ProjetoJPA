@@ -23,4 +23,6 @@ public interface IGenericDAO <Entity extends AbstractEntity> {
      */
     Entity save(Entity obj);
     
+    //Entity delete(Entity obj);
+    
 }

@@ -41,7 +41,6 @@ public class ServiceProduto implements IServiceProduto{
         return this.produtoDAO.findByNomeProduto(nomeProduto);
     }
       
-    //Provavelmente esse método ficara no service de funcionário caixa
     @Override
     public List <Produto> findByCodBarras(Integer codigoBarras){
         return this.produtoDAO.findByCodBarras(codigoBarras);
@@ -50,6 +49,15 @@ public class ServiceProduto implements IServiceProduto{
     /*@Override
     public List <Produto> deleteProduto(Integer codigoBarras){
         return this.produtoDAO.deleteProduto(codigoBarras);
+    }*/
+    
+    /*@Override
+    public Produto deleteProduto(Integer codigoBarras){
+        return this.produtoDAO.deleteProduto(codigoBarras);
+    }
+    
+    /*public Produto delete(Produto produto){
+        return this.produtoDAO
     }*/
     
 }

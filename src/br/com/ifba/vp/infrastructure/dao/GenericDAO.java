@@ -56,6 +56,11 @@ public class GenericDAO<Entity extends AbstractEntity> implements IGenericDAO<En
         }
     }
     
+    /**
+     *
+     * @param entity
+     */
+    
     public void delete(Entity entity){
         try{
             entity = getById(entity.getId());
