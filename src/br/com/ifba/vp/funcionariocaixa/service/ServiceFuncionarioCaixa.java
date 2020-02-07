@@ -40,6 +40,7 @@ public class ServiceFuncionarioCaixa implements IServiceFuncionarioCaixa{
         return this.funcionarioCaixaDAO.findByCpfFuncionario(CPF);
     }
     
+    @Override
     public List <FuncionarioCaixa> login(){
         return this.funcionarioCaixaDAO.login();
     }

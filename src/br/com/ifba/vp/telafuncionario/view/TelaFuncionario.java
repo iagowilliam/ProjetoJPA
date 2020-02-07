@@ -9,6 +9,7 @@ import br.com.ifba.vp.verificarestoque.view.TelaVerificarEstoque;
 import br.com.ifba.vp.infrastructure.view.TelaLogin;
 import br.com.ifba.vp.produto.view.TelaCadastroProduto;
 import br.com.ifba.vp.cliente.view.TelaCadastroCliente;
+import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
 import br.com.ifba.vp.infrastructure.service.Singleton;
@@ -348,7 +349,7 @@ double precoTotal = 0;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         new TelaCadastroCliente().setVisible(true);
@@ -371,13 +372,27 @@ double precoTotal = 0;
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         Produto produto = new Produto();
-        IFacede facede = new Facede();
+        //IFacede facede = new Facede();
+        int y = 0;
         
         List <Produto> buscaCodigoBarras = Singleton.getInstance().findByCodBarras(Integer.parseInt(this.txtVendaCodBarras.getText()));
                 
-        precoTotal = precoTotal + produto.getPreco();
-               
+        
+         
+        try{    
             for(int i = 0; i  < buscaCodigoBarras.size() ; i++){
+                
+                produto.setCodigoBarras(buscaCodigoBarras.get(i).getCodigoBarras());
+                produto.setDataValidade(buscaCodigoBarras.get(i).getDataValidade());
+                produto.setGenero(buscaCodigoBarras.get(i).getGenero());
+                produto.setLote(buscaCodigoBarras.get(i).getLote());
+                produto.setNomeProduto(buscaCodigoBarras.get(i).getNomeProduto());
+                produto.setPreco(buscaCodigoBarras.get(i).getPreco());
+                produto.setSecao(buscaCodigoBarras.get(i).getSecao());
+                produto.setId(buscaCodigoBarras.get(i).getId());
+                
+                precoTotal = precoTotal + buscaCodigoBarras.get(i).getPreco();
+                y++;
                 
                 modelo.addRow(new Object[]{
                 
@@ -387,50 +402,20 @@ double precoTotal = 0;
                     buscaCodigoBarras.get(i).getDataValidade(),
                 });
                     
-            //facede.deleteProduto(Integer.parseInt(this.txtVendaCodBarras.getText()));
-            
+            Singleton.getInstance().deleteByCodigoBarras(produto);
                 
-            }  
+            }
+        
+        }catch(java.lang.NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Não insira letras, pontos, espaços ou caracteres!");
+        }    
+            
+            if(y == 0){
+                JOptionPane.showMessageDialog(null, "Produto não encontrado tente novamente!");
+            }
         
         
         jLabel3.setText(String.valueOf(precoTotal));
-        /*ProdutosDAO pdao = new ProdutosDAO();
-        
-        
-        double precoUnitario;
-        int valor;
-        
-        Produtos pr = new Produtos();
-        
-        //valor = (Integer.parseInt(jTextField1.getText()));
-        try{
-            
-            pr = pdao.Vender(Integer.parseInt(jTextField1.getText()));        
-            precoTotal = precoTotal + pr.getPreco();
-            
-            if(pr.getLote() != 0){
-                modelo.addRow(new Object[]{  
-
-                    pr.getNomeProduto(),
-                    pr.getPreco(),
-                    pr.getLote(),
-                    pr.getDataValidade(),
-
-                });
-
-                pdao.Delete(Integer.parseInt(jTextField1.getText()));
-            }else{
-                JOptionPane.showMessageDialog(null, "Produto não encontrado tente novamente!");
-            }
-            
-        }catch(java.lang.NumberFormatException ex){
-            
-            JOptionPane.showMessageDialog(null, "Não insira letras, pontos, espaços ou caracteres!");
-        
-        }
-        
-
-        jLabel3.setText(String.valueOf(precoTotal));*/
         
     }//GEN-LAST:event_jButton5ActionPerformed
 

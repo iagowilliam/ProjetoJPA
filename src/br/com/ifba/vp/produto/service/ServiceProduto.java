@@ -46,18 +46,14 @@ public class ServiceProduto implements IServiceProduto{
         return this.produtoDAO.findByCodBarras(codigoBarras);
     }
     
-    /*@Override
-    public List <Produto> deleteProduto(Integer codigoBarras){
-        return this.produtoDAO.deleteProduto(codigoBarras);
-    }*/
-    
-    /*@Override
-    public Produto deleteProduto(Integer codigoBarras){
-        return this.produtoDAO.deleteProduto(codigoBarras);
+    @Override
+    public void deleteByCodigoBarras(Produto produto){
+        if(produto == null){
+            throw new BusinessException(PRODUTO_NULL);
+        }
+        
+        this.produtoDAO.delete(produto);
+        
     }
-    
-    /*public Produto delete(Produto produto){
-        return this.produtoDAO
-    }*/
     
 }

@@ -29,6 +29,8 @@ public class Facede implements IFacede {
     
     private final IServiceProduto serviceProduto = new ServiceProduto();
     
+    //Métodos abaixo envia para o service que faz a comunicação com a base de dados
+    
     @Override
     public Produto saveProduto(Produto produto){
         return this.serviceProduto.saveProduto(produto);
@@ -44,15 +46,9 @@ public class Facede implements IFacede {
         return this.serviceProduto.findByCodBarras(codigoBarras);
     }
     
-    /*@Override
-    public List <Produto> deleteProduto(Integer codigoBarras){
-        return this.serviceProduto.deleteProduto(codigoBarras);
-    }*/
-    
-    /*@Override
-    public Produto deleteProduto(Integer codigoBarras){
-        return this.serviceProduto.deleteProduto(codigoBarras);
-    }*/
+    public void deleteByCodigoBarras(Produto produto){
+        this.serviceProduto.deleteByCodigoBarras(produto);
+    }
     
     //------------FUNCIONARIO CAIXA-------------
     

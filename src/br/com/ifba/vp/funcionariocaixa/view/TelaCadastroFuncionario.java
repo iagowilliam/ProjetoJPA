@@ -50,7 +50,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         }
         
         //checando cada campo invidivualmente
-       /* if(util.isNullOrEmpty(this.txtNomeFuncionario.getText())){
+        if(util.isNullOrEmpty(this.txtNomeFuncionario.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo Nome de Funcionário.");
             return false;
         }
@@ -71,12 +71,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         }
         
         
-        if(util.isNullOrEmpty(this.txtRGFuncionario.getText())){
+        if(util.isNullOrEmpty(this.txtRG.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo RG do Funcionário.");
             return false;
         }
         
-        if(util.isNullOrEmpty(this.txtCPFFuncionario.getText())){
+        if(util.isNullOrEmpty(this.txtCPF.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo CPF do Funcionário.");
             return false;
         }
@@ -86,7 +86,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             return false;
         }
         
-        if(util.isNullOrEmpty(this.txtTelefoneFuncionario.getText())){
+        if(util.isNullOrEmpty(this.txtTelefone.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo Telefone.");
             return false;
         }
@@ -116,10 +116,10 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             return false;
         }
         
-        if(util.isNullOrEmpty(this.txtCEPFuncionario.getText())){
+        if(util.isNullOrEmpty(this.txtCEP.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo CEP.");
             return false;
-        }*/
+        }
         
         return true;
     }
@@ -451,8 +451,9 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         FuncionarioCaixa funcionarioCaixa = new FuncionarioCaixa();
-        IFacede facede = new Facede();
+        //IFacede facede = new Facede();
         
+        try{
         
         //Verifica de o funcion[ario [e válido
         if(validaCampos() == true){
@@ -477,7 +478,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 
                 JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso!");
                 
-                //Fecha a tela de cadastro de funcionario
+                //Volta para a tela gerente e fecha a de cadastro
+                new TelaGerente().setVisible(true);
                 this.dispose();
 
             }else{
@@ -486,52 +488,10 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             
         }
         
-        /*List <FuncionarioCaixa> FC = new ArrayList();
-        FuncionarioCaixa F = new FuncionarioCaixa();
-        FuncionarioCaixaDAO FCD = new FuncionarioCaixaDAO();
-        int i = 0;
-        
-        try{
-            
-            F.setNome(jTextField1.getText());
-            F.setSenha(Integer.parseInt(jPasswordField1.getText()));
-            F.setEmail(jTextField3.getText());
-            F.setSexo((String)jComboBox2.getSelectedItem());
-            F.setRG(Integer.parseInt (jTextField5.getText()));
-            F.setCPF(Long.parseLong (jTextField4.getText()));
-            F.setEspecialização(jTextField6.getText());
-            F.setTelefone(Long.parseLong (jTextField11.getText()));
-            F.setRua(jTextField9.getText());
-            F.setNumero(Integer.parseInt (jTextField10.getText()));
-            F.setCidade(jTextField7.getText());
-            F.setBairro(jTextField8.getText());
-            F.setEstado((String)jComboBox1.getSelectedItem());
-            F.setCEP(Integer.parseInt (jTextField13.getText()));
-            
-            FCD.create(F);
-            i++;
-            
-            jTextField1.setText("");
-            jTextField3.setText("");
-            jTextField5.setText("");
-            jTextField4.setText("");
-            jTextField6.setText("");
-            jTextField11.setText("");
-            jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField7.setText("");
-            jTextField8.setText("");
-            jTextField13.setText("");
-        
         }catch(java.lang.NumberFormatException ex){
-            
             JOptionPane.showMessageDialog(null, "Um ou mais campos númericos foram preenchidos com pontos, espaços ou caracteres!");
-        
         }
         
-        if(i != 0){
-            JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso!");
-        }*/
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 

@@ -297,7 +297,9 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Produto produto = new Produto();
-        IFacede facede = new Facede();
+        //IFacede facede = new Facede();
+        
+        try{
         
         //Verifica se o produto é válido
         if(validaCampos() == true){
@@ -311,7 +313,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             produto.setDataValidade(this.txtDataDeValidade.getText());
             produto.setCodigoBarras(Integer.parseInt(this.txtCodigoDeBarras.getText()));
             
-            //facede.saveProduto(produto);
             
             //salvando na base de dados
             if(Singleton.getInstance().saveProduto(produto) == produto){
@@ -319,6 +320,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
                
                 //Fecha a tela de cadastro de produto
+                new TelaFuncionario().setVisible(true);
                 this.dispose();
                 
             }else{
@@ -326,48 +328,10 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             }
         }
         
-        /*List <Produtos> PR = new ArrayList();
-        Produtos p = new Produtos();
-        ProdutosDAO PD = new ProdutosDAO();
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-        int i = 0;
-
-        try{
-            
-            p.setNomeProduto(txtNomeProduto.getText());
-            p.setLote(Integer.parseInt(txtLote.getText()));
-            p.setPreco(Double.parseDouble(txtPrecoProduto.getText()));
-            p.setGenero(txtGeneroProduto.getText());
-            p.setSecao(Integer.parseInt(txtSecao.getText()));
-            p.setDataValidade(txtDataDeValidade.getText());
-            p.setCodigoBarras(Integer.parseInt(txtCodigoDeBarras.getText()));
-            
-            Caixa caixa = new Caixa();
-            caixa.setDebito(p.getPreco());
-            
-            PD.create(p);
-            i++;
-//            new TelaFuncionario().setVisible(true);
-//            this.dispose();
-
-            txtNomeProduto.setText("");
-            txtLote.setText("");
-            txtPrecoProduto.setText("");
-            txtGeneroProduto.setText("");
-            txtSecao.setText("");
-            txtDataDeValidade.setText("");
-            txtCodigoDeBarras.setText("");
-            
-   
         }catch(java.lang.NumberFormatException ex){
-            
             JOptionPane.showMessageDialog(null, "Um ou mais campos númericos foram preenchidos com pontos, espaços ou caracteres!");
-        
         }
         
-        if(i != 0){
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-        }*/
       
     }//GEN-LAST:event_ButtonSalvarActionPerformed
 

@@ -7,6 +7,7 @@ package br.com.ifba.vp.cliente.view;
 import br.com.ifba.vp.telafuncionario.view.TelaFuncionario;
 import br.com.ifba.vp.cliente.dao.ClienteDAO;
 import br.com.ifba.vp.cliente.model.bean.Cliente;
+import br.com.ifba.vp.infraestructure.support.StringUtil;
 import br.com.ifba.vp.infrastructure.service.Facede;
 import br.com.ifba.vp.infrastructure.service.IFacede;
 import br.com.ifba.vp.infrastructure.service.Singleton;
@@ -303,49 +304,64 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean validaCampos(){
-        if(this.txtNomeCliente.getText().equals("")){
+        
+        StringUtil util = StringUtil.getInstance();
+        
+        if(util.isNullOrEmpty(this.txtNomeCliente.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome do Cliente.");
             return false;
-        }else{
-            if(this.jComboBoxSexo.getSelectedItem().equals("")){
-                return false;
-            }else{
-                if(this.txtTelefone.getText().equals("")){
-                    return false;
-                }else{
-                    if(this.txtRG.getText().equals("")){
-                        return false;
-                    }else{
-                        if(this.txtCPF.getText().equals("")){
-                            return false;
-                        }else{
-                            if(this.txtRua.getText().equals("")){
-                                return false;
-                            }else{
-                                if(this.txtNumero.getText().equals("")){
-                                    return false;
-                                }else{
-                                    if(this.txtCidade.getText().equals("")){
-                                        return false;
-                                    }else{
-                                        if(this.txtBairro.getText().equals("")){
-                                            return false;
-                                        }else{
-                                            if(this.jComboBoxEstado.getSelectedItem().equals("")){
-                                                return false;
-                                            }else{
-                                                if(this.txtCEP.getText().equals("")){
-                                                    return false;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
+        
+        if(util.isNullOrEmpty((String) this.jComboBoxSexo.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Sexo.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtTelefone.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Telefone.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtRG.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo RG.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtCPF.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtRua.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Rua.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtNumero.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Número.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtCidade.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Cidade.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtBairro.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Bairro.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty((String) this.jComboBoxEstado.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Estado.");
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(this.txtCEP.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo CEP.");
+            return false;
+        }
+        
         return true;
     }
     
@@ -364,7 +380,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Cliente cliente = new Cliente();
-        IFacede facede = new Facede();
+        //IFacede facede = new Facede();
+        
+        try{
         
         //verifica se o cliente é válido
         if(validaCampos() == true){
@@ -387,55 +405,18 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
                 
-                //Fecha a tela de cadastro de cliente
+                //Volta para a tela de funciionario e fecha a tela de cadastro de cliente
+                new TelaFuncionario().setVisible(true);
                 this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             }
         }
         
-        /*List <Cliente> AC = new ArrayList();
-        Cliente C = new Cliente();
-        ClienteDAO dao = new ClienteDAO();
-        int i = 0;
-        
-        try{
-            
-            C.setNome(jTextField1.getText());
-            C.setSexo((String)jComboBox1.getSelectedItem());
-            C.setTelefone(Long.parseLong(jTextField2.getText()));
-            C.setRG(Integer.parseInt(jTextField3.getText()));
-            C.setCPF(Long.parseLong(jTextField7.getText()));      
-            C.setRua(jTextField4.getText());
-            C.setNumero(Integer.parseInt(jTextField6.getText()));   
-            C.setCidade(jTextField8.getText());
-            C.setBairro(jTextField5.getText());
-            C.setEstado((String)jComboBox2.getSelectedItem());
-            C.setCEP(Integer.parseInt(jTextField9.getText()));
-            
-            dao.create(C);
-            
-            i++;
-            
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField7.setText("");
-            jTextField4.setText("");
-            jTextField6.setText("");
-            jTextField8.setText("");
-            jTextField5.setText("");
-            jTextField9.setText("");
-            
         }catch(java.lang.NumberFormatException ex){
-            
             JOptionPane.showMessageDialog(null, "Um ou mais campos númericos foram preenchidos com pontos, espaços ou caracteres!");
+        }
         
-        } 
-        
-        if(i != 0){
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-        }*/
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

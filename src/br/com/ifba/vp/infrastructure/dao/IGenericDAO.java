@@ -6,6 +6,7 @@
 package br.com.ifba.vp.infrastructure.dao;
 
 import br.com.ifba.vp.infrastructure.model.AbstractEntity;
+import java.util.List;
 
 /**
  *
@@ -23,6 +24,10 @@ public interface IGenericDAO <Entity extends AbstractEntity> {
      */
     Entity save(Entity obj);
     
-    //Entity delete(Entity obj);
+    /**
+     *
+     * @param obj
+     */
+    void delete(Entity obj);
     
 }
